@@ -53,5 +53,7 @@ Promotion, ownership transfer, advanced platform intervention, and terminal-disa
 - requirement IDs referenced in relevant test names or test descriptions;
 - migration and policy files for database invariants;
 - CI output for lint/type checks, unit, PostgreSQL integration, end-to-end, and build;
-- `SUBMISSION.md` listing delivered scope, deferred items, known risks, and demonstration instructions.
-- safe evidence of the deployed Worker version and successful invitation/reset smoke delivery, without exposing addresses, links, tokens, or secrets.
+- `SUBMISSION.md` listing delivered scope, deferred items, known risks, and the accessible Loom demonstration link;
+- a Loom video of no more than 10 minutes showing the running platform, the implemented modules and features, and the principal functional journeys working end to end, using only synthetic data and exposing no secrets, tokens, private links, or sensitive configuration;
+- a private submission repository accessible to the GitHub user `mbouzian42` throughout the review process;
+- safe evidence of the Resend configuration and successful invitation/reset smoke delivery, without exposing addresses, links, tokens, or secrets.

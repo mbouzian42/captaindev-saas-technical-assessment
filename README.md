@@ -4,7 +4,7 @@ This repository contains the standalone brief and product, architecture, securit
 
 ## Suggested timing
 
-There is no hard submission deadline. Because the role is intended to start by late August or early September, submitting by **Wednesday, 19 August 2026** is strongly encouraged so that reviews and interviews can be completed promptly. Record your actual start and finish times honestly in `SUBMISSION.md`.
+There is no hard submission deadline. Because the role is intended to start by late August or early September, submitting by **Wednesday, 19 August 2026** is strongly encouraged so that reviews and interviews can be completed promptly.
 
 ## Read in this order
 
@@ -32,6 +32,12 @@ The supplied PRD and architecture were prepared using the [BMAD Method](https://
 Whichever workflow you choose, work in small vertical slices: implement, run the relevant checks, inspect failures, correct them, and repeat. Document your main AI-assisted workflow and the important decisions you made.
 
 AI use does not lower the delivery bar, but you are not expected to manually review every generated line. Instead, build a strong executable validation harness that gives the AI fast and trustworthy feedback: strict type and lint checks, focused unit tests, real-database integration tests, end-to-end journeys, negative security cases, deterministic fixtures, and repeatable CI. The harness must be reliable and sufficiently comprehensive to detect incorrect behavior and regressions while you iterate. You remain responsible for protecting secrets, investigating failures, validating the final behavior, and delivering a complete runnable submission. Document the main AI-assisted workflow, validation strategy, and known limitations in `SUBMISSION.md`; a raw prompt transcript is not required.
+
+## Submission repository and demonstration
+
+Create a **private GitHub repository** that you control for your implementation. Do not fork this assessment repository. Add the GitHub user [`mbouzian42`](https://github.com/mbouzian42) as a collaborator and ensure access is accepted and remains available throughout the review process so CaptainDev can review the source code and commit history.
+
+At the end of the assessment, record a Loom video of no more than 10 minutes showing the platform running. Present the implemented modules and their main features, and demonstrate the principal functional journeys working end to end. Security and failure-path properties that are not practical to demonstrate visually should be supported by automated test evidence instead. Use only synthetic identities and data, and redact all secrets, tokens, private links, and sensitive configuration. Add the Loom link to `SUBMISSION.md` and keep it accessible throughout the review process without requiring additional access.
 
 ## Source precedence
 

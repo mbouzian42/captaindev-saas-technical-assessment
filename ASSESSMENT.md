@@ -13,7 +13,7 @@ The result must be a runnable, persistent, multi-Organization web application. A
 
 - There is no hard deadline.
 - Submission by **Wednesday, 19 August 2026** is strongly encouraged so that the recruitment process can move quickly.
-- Record the actual start and finish times in `SUBMISSION.md`; submit as soon as the work is complete.
+- Submit as soon as the work is complete.
 
 ## Functional scope
 
@@ -96,7 +96,7 @@ Your submission must include:
 - documented first-party authentication behavior, session lifecycle, secure bootstrap, and implemented password-recovery flow;
 - documented Resend setup, sender-domain configuration, local email adapter, and secret injection steps;
 - concise architecture and trade-off notes for decisions made during the assessment;
-- a demonstration of no more than 10 minutes, either live at the scheduled review or as a recorded walkthrough linked from `SUBMISSION.md`.
+- a Loom video of no more than 10 minutes showing the running platform, the implemented modules and their main features, and the principal functional journeys working end to end; security and failure-path properties that are not practical to demonstrate visually remain supported by automated test evidence. The accessible Loom link must be included in `SUBMISSION.md`. Use only synthetic identities and data, and redact all secrets, tokens, private links, and sensitive configuration.
 
 Do not include secrets, real customer data, production credentials, or undocumented external dependencies.
 
@@ -117,6 +117,8 @@ The submission is done only when:
 - invitation, lifecycle, permission, promotion, and ownership invariants are covered by tests;
 - responsive critical journeys work from 360 px upward and remain keyboard-usable;
 - lint/type checks, unit tests, integration tests, end-to-end tests, and build pass in CI;
+- the Loom video demonstrates the functional platform and the principal delivered functional journeys, uses only safe synthetic data, exposes no sensitive information, and remains accessible throughout the review process;
+- the private submission repository is accessible to the GitHub user `mbouzian42` throughout the review process;
 - documentation states honestly what is complete, incomplete, mocked, or intentionally deferred.
 
 ## Blocking quality gates
@@ -136,6 +138,7 @@ The following failures are assessment blockers:
 - a lifecycle transition that can leave an active Organization without exactly one owner or without an active Administrator;
 - a stale session or concurrent mutation retaining access after a suspension or permission reduction;
 - critical setup or verification steps missing from the documentation.
+- the private repository or Loom video being inaccessible to the reviewer during the review process.
 
 ## Evaluation criteria
 
@@ -157,7 +160,8 @@ Finishing fewer secondary details with strong security and clear reporting is pr
 
 1. Ensure the repository contains no secrets and no real data.
 2. Run every documented quality command from a clean local state.
-3. Add a `SUBMISSION.md` containing the delivered scope, known limitations, test results, setup caveats, and demonstration link or instructions.
-4. Push the submission to a repository you control. It may be public, or private with the CaptainDev reviewer added as a collaborator. Do not submit a fork that exposes another candidate's work.
-5. The authoritative submission is the commit identified in `SUBMISSION.md`; include its SHA and the actual completion time.
-6. Do not rewrite history after submission unless the reviewer explicitly requests a correction.
+3. Add a `SUBMISSION.md` containing the delivered scope, known limitations, test results, setup caveats, and Loom demonstration link.
+4. Push the submission to a **private GitHub repository** you control. Do not fork this assessment repository.
+5. Add the GitHub user [`mbouzian42`](https://github.com/mbouzian42) as a collaborator, ensure the invitation is accepted, and retain reviewer access throughout the review process.
+6. Reply to the assessment email with the private repository URL and the accessible Loom video URL.
+7. CaptainDev will evaluate the default-branch state available when the submission email is received. Do not push further changes or rewrite history after submission unless the reviewer explicitly requests a correction.
