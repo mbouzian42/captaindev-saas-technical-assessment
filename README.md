@@ -11,9 +11,11 @@ There is no hard submission deadline. Because the role is intended to start by l
 1. [ASSESSMENT.md](ASSESSMENT.md) — mission, scope, deliverables, quality gates, and submission protocol.
 2. [Product requirements](docs/product/PRODUCT-REQUIREMENTS.md) — complete product context with explicit assessment markers.
 3. [Assessment traceability](docs/product/ASSESSMENT-TRACEABILITY.md) — exact requirements, architecture decisions, and minimum verification applicable to the exercise.
-4. [Architecture](docs/architecture/ARCHITECTURE.md) — complete target architecture with explicit assessment markers.
+4. [Assessment architecture](docs/architecture/ARCHITECTURE.md) — concise required implementation structure, mandatory invariants, and optional choices.
 5. [Security invariants](docs/architecture/SECURITY-INVARIANTS.md) — blocking isolation and authorization rules.
 6. [UX reference pack](docs/ux/README.md) — applicable mockups and interpretation rules.
+
+The broader [target product architecture](docs/architecture/TARGET-ARCHITECTURE.md) is optional reference material. It is not an implementation checklist for the assessment.
 
 ## Getting started
 
@@ -46,7 +48,7 @@ If documents appear to conflict, use this order:
 1. `ASSESSMENT.md` for assessment scope, suggested timing, and deliverables;
 2. `docs/architecture/SECURITY-INVARIANTS.md` for security requirements;
 3. `docs/product/PRODUCT-REQUIREMENTS.md` for behavior;
-4. `docs/architecture/ARCHITECTURE.md` for implementation structure;
+4. `docs/architecture/ARCHITECTURE.md` for the required assessment implementation structure;
 5. UX mockups for visual intent only.
 
 Ask for clarification when a conflict cannot be resolved by this order. Do not silently weaken a requirement.

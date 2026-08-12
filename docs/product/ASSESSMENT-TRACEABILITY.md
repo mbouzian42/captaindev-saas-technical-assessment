@@ -4,7 +4,7 @@
 
 This matrix separates the complete NOVA product context from the requirements that must be delivered during the technical assessment. It is not a task decomposition. The candidate remains responsible for planning implementation and tests.
 
-The full target is the two modules defined in [ASSESSMENT.md](../../ASSESSMENT.md). Priority A is executable and required. Priority B must be implemented when time permits or otherwise designed and reported honestly in `SUBMISSION.md`.
+The full target is the two modules defined in [ASSESSMENT.md](../../ASSESSMENT.md). Priority A is executable and required. Priority B must be implemented when time permits or otherwise designed and reported honestly in `SUBMISSION.md`. The AD identifiers below point to the optional detailed rationale in [TARGET-ARCHITECTURE.md](../architecture/TARGET-ARCHITECTURE.md); the concise [assessment architecture](../architecture/ARCHITECTURE.md) is the implementation contract.
 
 ## Requirement mapping
 
