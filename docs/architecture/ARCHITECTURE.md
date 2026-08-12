@@ -94,18 +94,20 @@ An outbox table is required when it is needed to make a submitted external side 
 
 ## 5. Required data and flows
 
-The schema must support the Priority A flows in [ASSESSMENT.md](../../ASSESSMENT.md), including:
+The schema must support all required flows in [ASSESSMENT.md](../../ASSESSMENT.md), including:
 
 - identities, password credentials, login protection, sessions, and password-reset tokens;
 - Platform Administrator bootstrap;
 - Organization provisioning and initial-owner invitation;
 - Companies and Business Scopes;
 - memberships, invitations, explicit capabilities, and Company/Business Scope grants;
-- suspension and reactivation;
+- suspension, reactivation, and logical removal;
+- advanced scoped Platform Administrator intervention and terminal Organization disablement;
+- Administrator promotion and atomic ownership transfer;
 - transactional email delivery state;
 - evidence needed for sensitive foundation mutations.
 
-Priority B data structures, including Administrator promotion and ownership transfer, may remain a documented design when those features are not implemented. Do not build speculative schemas for unrelated future product modules.
+Do not build speculative schemas for unrelated future product modules.
 
 ## 6. Email delivery
 
@@ -115,7 +117,7 @@ The three required message types are:
 2. collaborator invitation;
 3. password reset.
 
-Production-style verification uses Resend. Automated tests use the same outbound port with a deterministic recording adapter and do not send external email. Application callers cannot select arbitrary templates, markup, senders, or redirect origins.
+Production-style verification uses Resend and a real mailbox controlled by the candidate. The Loom demonstration shows receipt and completion of the invitation and password-reset journeys. Automated tests use the same outbound port with a deterministic recording adapter and do not send external email. Application callers cannot select arbitrary templates, markup, senders, or redirect origins.
 
 The implementation may send email synchronously after a durable transaction or use an outbox/dispatcher. Whichever design is chosen must avoid losing committed invitations or exposing usable credentials, and must handle retries without duplicate business effects.
 
@@ -126,7 +128,7 @@ The candidate is expected to build an executable harness that gives both the dev
 - unit tests for domain and permission invariants;
 - integration tests against real PostgreSQL for migrations, constraints, authentication persistence, transactions, and forced RLS;
 - negative cross-Organization tests, including reused pooled connections and forged identifiers;
-- end-to-end tests for the principal Priority A journeys;
+- end-to-end tests for the principal required journeys;
 - checks for stale access, replay, token expiry, concurrent invitation acceptance, and direct API authorization;
 - linting, strict type checking, tests, and production build in CI;
 - deterministic synthetic fixtures for at least two Organizations.
@@ -143,7 +145,8 @@ These may be used when they improve the submitted solution, but they are not req
 - Docker or another container-based bootstrap;
 - a formal ports-and-adapters folder structure;
 - advanced observability beyond safe structured errors and useful correlation;
-- full implementation of Priority B.
+- real-time visual browser invalidation beyond required immediate server-side refusal;
+- notification channels or templates beyond the three required transactional emails.
 
 Candidates should prefer a smaller complete vertical slice over unused infrastructure or speculative abstractions.
 
@@ -172,7 +175,7 @@ In `SUBMISSION.md`, document:
 - the implemented module boundaries and important transaction boundaries;
 - deliberate deviations from the prescribed baseline;
 - which optional components were used and why;
-- Priority B elements that are implemented or only designed;
+- optional enhancements that were implemented and why;
 - known limitations, remaining risks, and the next implementation step.
 
 Candidates do not need to reproduce the full target architecture or create speculative documentation for future NOVA modules.

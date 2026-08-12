@@ -23,7 +23,7 @@ You may choose the exact project bootstrap details while respecting the prescrib
 
 Your implementation must expose documented commands for installation, database migration, local startup, unit tests, integration tests, end-to-end tests, linting/type checking, and production build.
 
-The assessment requires real invitation and password-reset email through [Resend](https://resend.com/). Create a free Resend account, configure a verified sender or domain according to Resend's current requirements, and inject the API key through environment configuration. Never commit credentials. Automated local and CI tests must use the deterministic adapter described by the architecture and must not send external email.
+The assessment requires real invitation and password-reset email through [Resend](https://resend.com/). Create a free Resend account, configure a verified sender or domain according to Resend's current requirements, and use a real mailbox you control for the end-to-end demonstration. Automated local and CI tests must use the deterministic adapter described by the architecture and must not send external email.
 
 ## AI-assisted workflow
 
@@ -39,7 +39,7 @@ AI use does not lower the delivery bar, but you are not expected to manually rev
 
 Create a **private GitHub repository** that you control for your implementation. Do not fork this assessment repository. Add the GitHub user [`mbouzian42`](https://github.com/mbouzian42) as a collaborator and ensure access is accepted and remains available throughout the review process so CaptainDev can review the source code and commit history.
 
-At the end of the assessment, record a Loom video of no more than 10 minutes showing the platform running. Present the implemented modules and their main features, and demonstrate the principal functional journeys working end to end. Security and failure-path properties that are not practical to demonstrate visually should be supported by automated test evidence instead. Use only synthetic identities and data, and redact all secrets, tokens, private links, and sensitive configuration. Add the Loom link to `SUBMISSION.md` and keep it accessible throughout the review process without requiring additional access.
+At the end of the assessment, record a Loom video of no more than 10 minutes showing the platform running. Present the implemented modules and their main features, and demonstrate the principal functional journeys working end to end. In particular, show a real invitation arriving in a mailbox you control, open its link, activate the account, and show that the same invitation cannot be reused. Also show receipt and successful use of a real password-reset email. Security and failure-path properties that are not practical to demonstrate visually should be supported by automated test evidence instead. Use only synthetic identities and data. Add the Loom link to `SUBMISSION.md` and keep it accessible throughout the review process without requiring additional access.
 
 ## Source precedence
 

@@ -53,11 +53,11 @@ The product has exactly two Organization profiles: `Administrator` and `User`. P
 
 Multi-factor authentication is not required and must not be implemented for this assessment. The required authentication scope is email/password login, invitation-based account creation, logout, server-side sessions, and password reset.
 
-## Delivery priorities
+## Delivery scope
 
-The two modules above define the full target. Because the assessment is time-boxed, prioritize in this order.
+The two modules above define the required functional scope. The submission is expected to implement and test the complete lifecycle described below.
 
-### Priority A — executable and required
+### Required implementation
 
 - reproducible local bootstrap, migrations, CI, and synthetic data;
 - first-party email/password login, logout, server-side sessions, brute-force protection, and secure Platform Administrator bootstrap;
@@ -68,17 +68,19 @@ The two modules above define the full target. Because the assessment is time-box
 - Company and business-scope administration;
 - collaborator invitation and acceptance with explicit grants;
 - permission resolution, suspension, and reactivation;
-- forced PostgreSQL RLS and executable negative isolation tests.
-
-### Priority B — complete if time permits; otherwise design and report honestly
-
-- advanced platform user intervention;
+- advanced, narrowly scoped, reasoned, and evidenced Platform Administrator intervention;
 - terminal Organization disablement and its operational follow-up;
 - Administrator promotion and atomic ownership transfer;
-- real-time browser invalidation beyond server-side immediate refusal;
-- notification channels and templates beyond the three required authentication emails.
+- immediate server-side access refusal after suspension, removal, or permission reduction, including for a session that was already open;
+- forced PostgreSQL RLS and executable negative isolation tests.
 
-Priority B is still part of the requested design. If it is incomplete, describe the intended model, migrations, tests, risks, and next implementation step in `SUBMISSION.md`. Never weaken Priority A security or testing to increase visible feature count.
+### Optional enhancements
+
+- real-time visual invalidation in an already-open browser through WebSocket, SSE, or equivalent, beyond the required immediate server-side refusal;
+- notification channels and templates beyond the three required transactional authentication emails;
+- optional infrastructure such as a dedicated worker, Redis, or BullMQ when it adds value to the submitted design.
+
+Optional enhancements are not evaluation blockers. Do not weaken required functionality, security, or testing to increase infrastructure or visible feature count.
 
 ## Required deliverables
 
@@ -96,7 +98,7 @@ Your submission must include:
 - documented first-party authentication behavior, session lifecycle, secure bootstrap, and implemented password-recovery flow;
 - documented Resend setup, sender-domain configuration, local email adapter, and secret injection steps;
 - concise architecture and trade-off notes for decisions made during the assessment;
-- a Loom video of no more than 10 minutes showing the running platform, the implemented modules and their main features, and the principal functional journeys working end to end; security and failure-path properties that are not practical to demonstrate visually remain supported by automated test evidence. The accessible Loom link must be included in `SUBMISSION.md`. Use only synthetic identities and data, and redact all secrets, tokens, private links, and sensitive configuration.
+- a Loom video of no more than 10 minutes showing the running platform, the implemented modules and their main features, and the principal functional journeys working end to end. The video must demonstrate a real invitation email arriving in a mailbox controlled by the candidate, opening its link, completing account activation, and proving that the invitation cannot be reused. It must also demonstrate a real password-reset email and successful completion of that journey. Security and failure-path properties that are not practical to demonstrate visually remain supported by automated test evidence. The accessible Loom link must be included in `SUBMISSION.md`. Use only synthetic identities and data.
 
 Do not include secrets, real customer data, production credentials, or undocumented external dependencies.
 
@@ -109,7 +111,7 @@ The submission is done only when:
 - all protected actions are authorized server-side;
 - Platform Administrators, Organization Administrators, and invited Users can log in, log out, and return through a valid server-side session;
 - invited users can create their account by choosing a password, and all account types can complete the neutral password-reset flow;
-- a reviewer-controlled mailbox receives a real invitation and password-reset email through Resend, and each link completes its intended single-use journey;
+- a real mailbox controlled by the candidate receives invitation and password-reset emails through Resend, and each link completes its intended single-use journey;
 - password credentials and session secrets follow the blocking authentication invariants;
 - the browser cannot select or override the authoritative Organization context;
 - migrations create the required constraints and PostgreSQL row-level security;
@@ -117,7 +119,7 @@ The submission is done only when:
 - invitation, lifecycle, permission, promotion, and ownership invariants are covered by tests;
 - responsive critical journeys work from 360 px upward and remain keyboard-usable;
 - lint/type checks, unit tests, integration tests, end-to-end tests, and build pass in CI;
-- the Loom video demonstrates the functional platform and the principal delivered functional journeys, uses only safe synthetic data, exposes no sensitive information, and remains accessible throughout the review process;
+- the Loom video demonstrates the functional platform, receipt of a real invitation and password-reset email in a candidate-controlled mailbox, completion of both linked journeys, and invitation replay refusal; it uses only synthetic identities and data and remains accessible throughout the review process;
 - the private submission repository is accessible to the GitHub user `mbouzian42` throughout the review process;
 - documentation states honestly what is complete, incomplete, mocked, or intentionally deferred.
 
@@ -154,7 +156,7 @@ Reviewers will assess:
 - delivery discipline, documentation, and honest scope reporting;
 - appropriate and transparent use of coding assistants.
 
-Finishing fewer secondary details with strong security and clear reporting is preferable to concealing incomplete work. If time runs out, list unfinished items, known risks, and the tests that still need to be added.
+Strong security, complete end-to-end behavior, and clear reporting are more important than optional infrastructure or visual embellishment. If any required item remains incomplete, list it honestly with known risks and the tests that still need to be added.
 
 ## Submission protocol
 

@@ -257,7 +257,7 @@ The API commits the invitation or recovery record and its notification intent at
 
 The authoritative invitation or recovery credential is stored only as a hash. Because an email system must temporarily carry the usable link, the outbox may hold only a short-lived, application-encrypted delivery envelope whose key is external to the database; it is deleted after accepted delivery or terminal expiry. The raw secret exists only in process memory or inside that encrypted envelope and is never logged, included in evidence, or returned by an administrative API. Resending invalidates the previous credential and creates a new delivery ID.
 
-Automated tests use the same outbound port with a deterministic recording adapter. Completion additionally requires a Resend smoke test to a reviewer-controlled mailbox; production-style journeys must not rely on console output, a local inbox, or manual token copying.
+Automated tests use the same outbound port with a deterministic recording adapter. Completion additionally requires real Resend delivery to a mailbox controlled by the candidate, demonstrated through the invitation and password-reset journeys in Loom; production-style journeys must not rely on console output, a development inbox, or manual token copying.
 
 ## 5. Module ownership
 
@@ -377,7 +377,7 @@ Use a real PostgreSQL instance and prove credential/session/token constraints, h
 
 ### End-to-end tests
 
-Cover secure bootstrap, Platform Administrator login/logout, rejected login throttling, session expiry/revocation, password-reset request and completion through the recording email adapter, Organization provisioning, invitation-based initial-owner account activation and later login, collaborator activation and login, Company and Business Scope administration, permission change, suspension/reactivation, and at least one responsive critical journey. Separately smoke-test one invitation and one password-reset delivery through Resend to a reviewer-controlled mailbox.
+Cover secure bootstrap, Platform Administrator login/logout, rejected login throttling, session expiry/revocation, password-reset request and completion through the recording email adapter, Organization provisioning, invitation-based initial-owner account activation and later login, collaborator activation and login, Company and Business Scope administration, permission change, suspension/reactivation/removal, Administrator promotion, ownership transfer, advanced scoped platform intervention, terminal Organization disablement, and at least one responsive critical journey. Separately demonstrate one real invitation and one real password-reset delivery through Resend to a candidate-controlled mailbox in Loom.
 
 ### Continuous integration
 
